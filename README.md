@@ -1,5 +1,5 @@
 # Firechat Android App
-** A sample application for testing and experimenting with [Firebase](http://firebase.google.com) **
+**A sample application for testing and experimenting with [Firebase](http://firebase.google.com)**
 
 Crafted by [David Höck](http://davidhoeck.com)
 
