@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Firechat</string>
+    <string name="nav_label_chat">Chat</string>
+    <string name="nav_label_profile">Profile</string>
+    <string name="nav_label_settings">Settings</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+
 </resources>
