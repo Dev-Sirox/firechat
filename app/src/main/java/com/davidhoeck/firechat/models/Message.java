@@ -1,5 +1,7 @@
 package com.davidhoeck.firechat.models;
 
+import android.net.Uri;
+
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
@@ -23,6 +25,7 @@ public class Message {
     public String message;
     public String createdAt;
     public String messageId;
+    public String parentUserPhotoUrl;
 
 
     public Message(){
@@ -36,12 +39,13 @@ public class Message {
      * @param parentUserName
      *
      */
-    public Message(String message, String parentUserId, String parentUserName) {
+    public Message(String message, String parentUserId, String parentUserName,String parentUserPhotoUrl) {
         this.message = message;
         this.parentUserId = parentUserId;
         this.messageId = this.generateMessageId();
         this.createdAt = this.generateCreatedAt();
         this.parentUserName = parentUserName;
+        this.parentUserPhotoUrl = parentUserPhotoUrl;
     }
 
     @Exclude
@@ -52,9 +56,13 @@ public class Message {
         result.put("message", this.getMessage());
         result.put("messageId", this.getMessageId());
         result.put("createdAt", this.getCreatedAt());
+        result.put("createdAt", this.getCreatedAt());
         return result;
     }
 
+    public String getParentUserPhotoUrl() {
+        return parentUserPhotoUrl;
+    }
 
     public String getParentUserName() {
         return parentUserName;
@@ -99,6 +107,7 @@ public class Message {
                 ", message='" + message + '\'' +
                 ", createdAt='" + createdAt + '\'' +
                 ", messageId='" + messageId + '\'' +
+                ", parentUserPhotoUrl='" + parentUserPhotoUrl + '\'' +
                 '}';
     }
 }

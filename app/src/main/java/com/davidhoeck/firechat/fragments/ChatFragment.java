@@ -92,7 +92,8 @@ public class ChatFragment extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(ChatMessageHolder viewHolder, Message model, int position) {
-                viewHolder.bindToMessage(model);
+
+                viewHolder.bindToMessage(model,getActivity());
             }
         };
 
@@ -108,7 +109,13 @@ public class ChatFragment extends Fragment {
             public void onClick(View view) {
                 if(mAuth.getCurrentUser() != null){
 
-                    Message message = new Message(mMessageInput.getText().toString(),mAuth.getCurrentUser().getUid(),mAuth.getCurrentUser().getDisplayName());
+                    String photoUrl = mAuth.getCurrentUser().getPhotoUrl().toString();
+                    Message message = new Message(
+                            mMessageInput.getText().toString(),
+                            mAuth.getCurrentUser().getUid(),
+                            mAuth.getCurrentUser().getDisplayName(),
+                            photoUrl
+                    );
                     mMessagesRef.push().setValue(message);
                     mMessageAdapter.notifyDataSetChanged();
                     llm.scrollToPosition(llm.findLastVisibleItemPosition() + 1);

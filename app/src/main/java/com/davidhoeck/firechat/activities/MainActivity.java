@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.davidhoeck.firechat.R;
@@ -22,6 +25,9 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
+
+import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -91,6 +97,19 @@ public class MainActivity extends AppCompatActivity {
 
         //Default Fragment "Chat"
         selectDrawerItem(nvDrawer.getMenu().getItem(0));
+
+        View headerLayout = nvDrawer.inflateHeaderView(R.layout.drawer_header);
+
+        ImageView headerImage = (ImageView) headerLayout.findViewById(R.id.header_image);
+        TextView headerName = (TextView) headerLayout.findViewById(R.id.header_name);
+
+        headerName.setText("Hi User");
+
+        if(mAuth.getCurrentUser() != null){
+
+            headerName.setText(mAuth.getCurrentUser().getDisplayName());
+            Picasso.with(getApplicationContext()).load(mAuth.getCurrentUser().getPhotoUrl().toString()).into(headerImage);
+        }
     }
 
     public void selectDrawerItem(MenuItem menuItem) {
