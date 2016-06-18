@@ -1,6 +1,8 @@
 package com.davidhoeck.firechat.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,13 +12,22 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.davidhoeck.firechat.R;
 import com.davidhoeck.firechat.fragments.ChatFragment;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    //Logging
+    public static final String TAG = "Firechat";
 
     //UI
     private DrawerLayout mDrawer;
@@ -24,20 +35,40 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView nvDrawer;
     private ActionBarDrawerToggle drawerToggle;
 
+    //Auth
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
         setContentView(R.layout.activity_main);
+
+        //Init Auth
+        mAuth = FirebaseAuth.getInstance();
 
         setupToolbar();
         setupNavDrawer();
+
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        checkAuthState();
+    }
 
     private void setupToolbar(){
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         setTitle("Firechat");
+
     }
 
     private void setupNavDrawer(){
@@ -131,4 +162,12 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle setupDrawerToggle() {
         return new ActionBarDrawerToggle(this, mDrawer, mToolbar, R.string.drawer_open,  R.string.drawer_close);
     }
+
+    private void checkAuthState(){
+       if(mAuth.getCurrentUser() == null){
+           startActivity(new Intent(this,AuthActivity.class));
+       }
+
+    }
+
 }
