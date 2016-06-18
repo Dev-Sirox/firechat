@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "541085080263",
+    "firebase_url": "https://firechat-fa8cc.firebaseio.com",
+    "project_id": "firechat-fa8cc",
+    "storage_bucket": "firechat-fa8cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541085080263:android:84264c1975fde163",
+        "android_client_info": {
+          "package_name": "com.davidhoeck.firechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541085080263-8qhmuj025veqfhk6pscf9lcl7ejvjs2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNI7NkLOAblWubWbnWbA5k8LfQU6C0XeE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
