@@ -24,7 +24,7 @@
         android:layout_toLeftOf="@+id/sendButton"
         android:layout_toStartOf="@+id/sendButton"
         android:hint="Message"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/primary"
         android:layout_margin="5dp" />
 
     <Button
@@ -35,7 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="@color/buttonColor"
+        android:background="@color/accent"
         android:textColor="#fff"
         android:layout_margin="5dp" />
 
