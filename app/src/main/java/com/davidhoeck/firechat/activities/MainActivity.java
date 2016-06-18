@@ -57,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
         drawerToggle = setupDrawerToggle();
         mDrawer.addDrawerListener(drawerToggle);
+
+        //Default Fragment "Chat"
+        selectDrawerItem(nvDrawer.getMenu().getItem(0));
     }
 
     public void selectDrawerItem(MenuItem menuItem) {
