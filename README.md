@@ -1,7 +1,12 @@
-# Firechat
-### An android chat application with the powerful backend of firebase
+# Firechat Android App
+**A sample application for testing and experimenting with [Firebase](http://firebase.google.com)**
 
-This application is just a example project tp test all the features of Firebase. You can use this application for playing with Firebase
-just duplicating some code. 
+Crafted by [David Höck](http://davidhoeck.com)
 
-### Have fun :-) 
+## About this project
+This project should be a experiment with the Firebase features. In the final "production" version it should include all features of Firebase, to have a strong code base for other projects with Firebase in the future. 
+
+## Contributing
+Please file a GitHub issue to [report a bug](https://github.com/davidhoeck/firechat/issues). If you also want to bring in your ideas to this project, open a pull request and I will take a look at your ideas.
+
+
