@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.davidhoeck.firechat.R;
 import com.davidhoeck.firechat.fragments.ChatFragment;
+import com.davidhoeck.firechat.fragments.ProfileFragment;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.google.firebase.auth.FirebaseAuth;
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = ChatFragment.class;
                 break;
             case R.id.nav_profile:
-                fragmentClass = ChatFragment.class;
+                fragmentClass = ProfileFragment.class;
                 break;
             case R.id.nav_settings:
                 fragmentClass = ChatFragment.class;

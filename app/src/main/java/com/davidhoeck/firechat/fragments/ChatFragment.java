@@ -101,6 +101,7 @@ public class ChatFragment extends Fragment {
         rvChat.setHasFixedSize(true);
         final LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.scrollToPosition(llm.findLastVisibleItemPosition());
+        llm.setStackFromEnd(true);
         rvChat.setLayoutManager(llm);
 
 
